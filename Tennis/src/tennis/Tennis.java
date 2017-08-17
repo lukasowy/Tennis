@@ -1,4 +1,4 @@
-package PongV2;
+package tennis;
 
 import java.applet.Applet;
 import java.awt.Color;
@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Tennis extends Applet implements Runnable, KeyListener {
+	
 	final int WIDTH = 700, HEIGHT = 500;
 	Thread thread;
 	HumanPaddle p1;
@@ -16,7 +17,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 	boolean gameStarted;
 	Graphics gfx;
 	Image img;
-	
+
 	public void init() {
 		this.resize(WIDTH, HEIGHT);
 		gameStarted = false;
@@ -41,7 +42,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 			b1.draw(gfx);
 			p2.draw(gfx);
 		}
-		if(!gameStarted) {
+		if (!gameStarted) {
 			gfx.setColor(Color.black);
 			gfx.drawString("Tennis", 340, 100);
 			gfx.drawString("Press Enter to Began..", 310, 130);
@@ -55,11 +56,11 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 
 	public void run() {
 		for (;;) {
-			if(gameStarted) {
-			p1.move();
-			p2.move();
-			b1.move();
-			b1.chceckPaddleCollision(p1, p2);
+			if (gameStarted) {
+				p1.move();
+				p2.move();
+				b1.move();
+				b1.chceckPaddleCollision(p1, p2);
 			}
 			repaint();
 			try {
@@ -76,7 +77,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 			p1.setUpAccel(true);
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			p1.setDownAccel(true);
-		} else if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+		} else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			gameStarted = true;
 		}
 	}

@@ -1,4 +1,4 @@
-package PongV2;
+package tennis;
 
 import java.awt.Graphics;
 
